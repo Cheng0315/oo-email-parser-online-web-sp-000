@@ -19,6 +19,6 @@ class EmailParser
       else
         email
       end
-    end
+    end.uniq
   end
 end
