@@ -16,6 +16,8 @@ class EmailParser
     @@all.collect do |email|
       if email[-1] == ","
         email.slice(0, email.length - 1)
+      else
+        email
       end
     end
   end
