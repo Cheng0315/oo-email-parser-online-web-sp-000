@@ -14,7 +14,8 @@ class EmailParser
   def parse
     @@all = @@emails.split(" ")
     @@all.collect do |email|
-      delete if email[-1] == ","
+      if email[-1] == ","
+        email.slice(0, email.length - 1)
     end
   end
 end
