@@ -4,21 +4,15 @@
 # or whitespace (' ').
 class EmailParser
 
-  @@all = []
-  @@emails = nil
+  @@all = nil
 
   def initialize(email)
-    @@emails = email
+    @@all = email.split(" ")
   end
 
   def parse
-    @@all = @@emails.split(" ")
-    @@all.collect do |email|
-      if email[-1] == ","
-        email.slice(0, email.length - 1)
-      else
-        email
-      end
-    end.uniq
+    @@all.collect {|email|
+      email[-1] == "," ? email.slice(0, email.length - 1) : email
+    }.uniq
   end
 end
