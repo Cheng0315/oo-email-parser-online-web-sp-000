@@ -12,7 +12,7 @@ class EmailParser
   end
 
   def parse
-    @@all << @@emails.scan(/\w+\.\w+/)
+    @@all << @@emails.scan(/\w+@\w+\.\w+/)
     @@all.flatten
   end
 end
